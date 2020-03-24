@@ -1,5 +1,9 @@
 function isCar(car1, car2, car3) {
-    return (!car1 && !car2 && !car3)  || (car1 && car2 && car3) // return 
+    if(!car1 && !car2 && !car3  || car1 && car2 && car3) // warunek logiczny
+        return true;
+            else
+                return false; 
+    
 }
 
 console.log(isCar(true, true, true));
