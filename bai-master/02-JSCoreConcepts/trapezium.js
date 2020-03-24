@@ -7,4 +7,4 @@ formula = ( a + b ) * h / 2; //wzor na pole trapezu
 
 let calculation = ( a, b, h ) => {return formula}; // kalkulacja
 
-console.log("Pole powierzchni trapezu wynosi: " + calculation( a, b, h ));
+console.log("Pole powierzchni trapezu wynosi: " + calculation( a, b, h )); //wypisanie
