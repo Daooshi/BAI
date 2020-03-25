@@ -1,19 +1,26 @@
-const reverse = function(arr) {
+const reverse = function(arr) { //konstruktor do odwracania
     arrReversed = [];
     arr.forEach(item => arrReversed.push(item));
     arrReversed.reverse();
     return arrReversed;
 }
 
-const sort = function(arr) {
+const sort = function(arr) { //konstruktor do sortowania
     arrSorted = [];
-    // ...
+    arr.forEach(item => arrSorted.push(item));
+    arrSorted.sort();
     return arrSorted;
 }
 
 const even = function(arr) {
     let arrEven = [];
-    // ...
+    arr.forEach(item => 
+        {
+            if(item % 2 == 0)
+            {
+                arrEven.push(item);
+            }
+        });
     return arrEven;
 }
 
