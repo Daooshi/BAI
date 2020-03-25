@@ -5,7 +5,7 @@ class Students {
         this.names = names; // kontekst wywołania
     }
 
-    startWith(letter){
+    /*startWith(letter){
         let namesInOrder = [ ];
         while(i<namesInOrder){
 
@@ -13,7 +13,7 @@ class Students {
         this.names = namesInOrder; 
         return this;// names (array) which starts with the letter
     }
-
+*/ //I don't know how to do this
     sort() {
         this.names.sort();
         return this;// names (array) in alphabetical order 
