@@ -23,6 +23,41 @@
 			function changeBackground(){
 				document.body.style.backgroundColor="yellow";
 			}
+			
+			//function  addingToSongTitle(){
+			//	let ;
+			//}
+
+			let bandName = document.getElementsByTagName("h3")[0];
+			bandName.addEventListener("click", bandDisplay);
+			
+			function bandDisplay(){
+				let show = document.getElementsByTagName("p")[1];
+				show.style.visibility = "visible";
+			}
+
+			let lyrics = document.getElementsByTagName("p")[0];
+			lyrics.addEventListener("click", lyricsToItalic);
+			
+			function lyricsToItalic(){
+				lyrics.style.fontStyle = "italic";
+			}
+			
+			let lyricsAlert = document.getElementsByTagName("p")[0];
+			lyricsAlert.addEventListener("copy", copyAlert);
+
+			function copyAlert(){
+				window.alert("Copyright protected");
+			}
+
+			let picture = document.getElementsByTagName("p")[1];
+			picture.addEventListener('click', displayPicture);
+
+			function displayPicture(){
+				var img = document.createElement("img");
+				img.setAttribute("src", "https://upload.wikimedia.org/wikipedia/en/d/d6/Pink_Floyd_-_all_members.jpg");
+				document.body.appendChild(img);
+			}
 			// a JavaScript code here ...
 			
 		</script>
