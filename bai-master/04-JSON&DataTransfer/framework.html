@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>List of Personal Data Framework</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js "></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	</head>
+	<body>
+		<h1>List of Personal Data Framework </h1>
+		<p>click the button to see list of personal data</p>
+        <input type="button" value="Make a connection" onclick="connect()">
+        <table id="list" class="display">
+		<script>
+				function connect(){
+                    var method = 'GET';
+                    var URL = 'https://raw.githubusercontent.com/Daooshi/BAI/master/bai-master/04-JSON%26DataTransfer/people.json';
+                    var xhr = new XMLHttpRequest();
+                    
+                    xhr.onreadystatechange = function(){
+                        if (this.readyState == 4 && this.status == 200) {
+                            let obj = JSON.parse(this.responseText);
+                            $('#list').DataTable( {
+                            data: obj,
+                            columns: [
+                                {data: 'name'},
+                                {data: 'surname'},
+                                {data: 'age'},
+                                {data: 'country'},
+                                {data: 'email'}
+                            ]
+                            } 
+                            );
+            
+                        }
+                    };
+                    xhr.open(method, URL);
+                    xhr.send();
+			}
+		</script>
+	</body>
+</html>
