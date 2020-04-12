@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Currencies</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<h1>Currencies</h1>
+		<p>click the button to see exchange rates below</p>
+		<input type="button" value="Make a connection" onclick="connect()">
+		<script>
+				function connect(){
+                    var currencies = ['EUR', 'USD', 'GBP'];
+                        for(i in currencies){
+                            var method = 'GET';
+                            var URL = 'http://api.nbp.pl/api/exchangerates/rates/a/' + currencies[i] + '/last/10/?format=json';
+                            var xhr = new XMLHttpRequest();
+                            
+                            xhr.onreadystatechange = function(){
+                                if (this.readyState == 4 && this.status == 200) {
+                                    let obj = JSON.parse(this.responseText);
+                                    let fullString = obj.code + ' Currency exchange rate: ' + obj.rates[9].mid + ' at: ' + obj.rates[9].effectiveDate;
+                                    let inputElement = document.getElementsByTagName("p")[0];
+                                    let pElement = document.createElement("p");
+                                    let textItem = document.createTextNode(fullString);
+                                    inputElement.appendChild(pElement);
+                                    pElement.appendChild(textItem);
+                        }
+                    };
+                    xhr.open(method, URL);
+                    xhr.send();
+                }
+			}
+
+		</script>
+
+	</body>
+</html>
