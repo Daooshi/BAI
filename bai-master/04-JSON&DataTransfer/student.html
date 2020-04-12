@@ -7,11 +7,22 @@
 	<body>
 		<h1>Student</h1>
 		<p>Open a console and then click the button</p>
-		<input type="button" value="Display student's data">
+		<input type="button" value="Display student's data" onclick="call()">
 		<p id="personalData"></p>
 
 		<script>
-
+			function call(){
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var myObj = JSON.parse(this.responseText);
+					document.getElementById("personalData").innerHTML = myObj.name;
+				}
+			};
+			xmlhttp.open("GET", "./personal.json", true);
+			xmlhttp.send();
+			}
+			
 		</script>
 
 	</body>
